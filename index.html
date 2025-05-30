@@ -6,7 +6,7 @@
     <title>Mohannad Omara - Biomedical Engineer</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background: #f0f2f5;
             display: flex;
             justify-content: center;
@@ -35,10 +35,12 @@
         h1 {
             color: #333;
             margin: 10px 0;
+            font-size: 28px;
         }
         .title {
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 18px;
         }
         .contact-btn {
             display: block;
@@ -49,8 +51,13 @@
             margin: 15px 0;
             text-decoration: none;
             font-weight: bold;
+            transition: all 0.3s ease;
         }
-        .add-contact {
+        .contact-btn:hover {
+            background: #3a5a9f;
+            transform: translateY(-2px);
+        }
+        .save-contact {
             background: #2ecc71;
             margin-top: 25px;
         }
@@ -58,7 +65,7 @@
 </head>
 <body>
     <div class="card">
-        <img src="profile.jpg" alt="Mohannad" class="profile-img">
+        <img src="profile.jpg" alt="Mohannad Omara" class="profile-img">
         <h1>Mohannad Omara</h1>
         <p class="title">Biomedical Engineer</p>
         
@@ -70,9 +77,8 @@
             ✉️ mohannad.omaraa@gmail.com
         </a>
         
-        <!-- زر الإضافة إلى جهات الاتصال -->
         <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Mohannad%20Omara%0ATEL;TYPE=CELL:+966566061030%0AEMAIL:mohannad.omaraa@gmail.com%0ATITLE:Biomedical%20Engineer%0AEND:VCARD" 
-           class="contact-btn add-contact"
+           class="contact-btn save-contact"
            download="Mohannad_Omara.vcf">
            📥 Save to Contacts
         </a>
