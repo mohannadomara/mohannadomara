@@ -4,28 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohannad Omara - Biomedical Engineer</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #4b6cb7;
+            margin: 0 auto 20px;
+        }
+        h1 {
+            color: #333;
+            margin: 10px 0;
+        }
+        .title {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .contact-btn {
+            display: block;
+            background: #4b6cb7;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .add-contact {
+            background: #2ecc71;
+            margin-top: 25px;
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-card">
-        <img src="assets/profile.jpg" alt="Mohannad Omara" class="profile-img">
-        
+    <div class="card">
+        <img src="profile.jpg" alt="Mohannad" class="profile-img">
         <h1>Mohannad Omara</h1>
         <p class="title">Biomedical Engineer</p>
         
-        <div class="contact-info">
-            <p>📞 <a href="tel:+966566061030">+966 56 606 1030</a></p>
-            <p>✉️ <a href="mailto:mohannad.omaraa@gmail.com">mohannad.omaraa@gmail.com</a></p>
-        </div>
+        <a href="tel:+966566061030" class="contact-btn">
+            📞 +966 56 606 1030
+        </a>
         
-        <div class="guest-book">
-            <h3>Sign Guest Book</h3>
-            <input type="text" id="guestName" placeholder="Your name">
-            <button onclick="addGuest()">Submit</button>
-            <div id="guestList"></div>
-        </div>
+        <a href="mailto:mohannad.omaraa@gmail.com" class="contact-btn">
+            ✉️ mohannad.omaraa@gmail.com
+        </a>
+        
+        <!-- زر الإضافة إلى جهات الاتصال -->
+        <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Mohannad%20Omara%0ATEL;TYPE=CELL:+966566061030%0AEMAIL:mohannad.omaraa@gmail.com%0ATITLE:Biomedical%20Engineer%0AEND:VCARD" 
+           class="contact-btn add-contact"
+           download="Mohannad_Omara.vcf">
+           📥 Save to Contacts
+        </a>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
