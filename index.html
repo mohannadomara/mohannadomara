@@ -1,139 +1,268 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohannad Omara - بطاقة Neumorphism</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>Mohannad Omara | Biomedical Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #3a4f76;
-            --secondary: #4b6cb7;
-            --bg: #f0f0f3;
+            --secondary: #1e3a8a;
+            --accent: #4f46e5;
+            --gold: #d4af37;
+            --dark: #111827;
+            --light: #f9fafb;
         }
         
         body {
-            font-family: 'Tajawal', sans-serif;
-            background: var(--bg);
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            color: var(--dark);
         }
         
-        .neumorphic-card {
-            background: var(--bg);
-            border-radius: 40px;
-            padding: 40px;
-            width: 90%;
-            max-width: 400px;
+        .card {
+            background: linear-gradient(to bottom right, white, #f8fafc);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, var(--gold), var(--accent));
+        }
+        
+        .profile-header {
+            padding: 40px 30px 30px;
             text-align: center;
-            box-shadow: 
-                -10px -10px 20px rgba(255, 255, 255, 0.8),
-                10px 10px 20px rgba(163, 177, 198, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        .neumorphic-card:hover {
-            box-shadow: 
-                -5px -5px 10px rgba(255, 255, 255, 0.8),
-                5px 5px 10px rgba(163, 177, 198, 0.5),
-                inset -5px -5px 10px rgba(255, 255, 255, 0.8),
-                inset 5px 5px 10px rgba(163, 177, 198, 0.5);
+            position: relative;
         }
         
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 20px;
-            box-shadow: 
-                -5px -5px 10px rgba(255, 255, 255, 0.8),
-                5px 5px 10px rgba(163, 177, 198, 0.5);
-            border: 3px solid var(--bg);
+            border: 5px solid white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
         h1 {
-            color: var(--primary);
-            margin: 0 0 10px;
-            font-size: 28px;
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
         }
         
         .title {
+            font-size: 18px;
+            margin: 15px 0 0;
+            font-weight: 400;
             color: var(--secondary);
-            font-weight: 700;
-            margin-bottom: 30px;
+            letter-spacing: 0.5px;
         }
         
-        .neumorphic-btn {
-            background: var(--bg);
-            border: none;
-            border-radius: 20px;
-            padding: 15px 25px;
-            margin: 10px 0;
-            width: 100%;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 16px;
-            color: var(--primary);
-            box-shadow: 
-                -5px -5px 10px rgba(255, 255, 255, 0.8),
-                5px 5px 10px rgba(163, 177, 198, 0.5);
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .contact-section {
+            padding: 0 30px 30px;
+        }
+        
+        .contact-btn {
             display: flex;
             align-items: center;
-            justify-content: center;
+            background: white;
+            color: var(--dark);
+            padding: 18px 25px;
+            border-radius: 12px;
+            margin: 0 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
         }
         
-        .neumorphic-btn:hover {
-            box-shadow: 
-                inset -5px -5px 10px rgba(255, 255, 255, 0.8),
-                inset 5px 5px 10px rgba(163, 177, 198, 0.5);
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transition: all 0.3s ease;
         }
         
-        .neumorphic-btn i {
-            margin-left: 10px;
-            font-size: 20px;
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-btn:hover::before {
+            width: 6px;
+            background: var(--gold);
+        }
+        
+        .contact-btn i {
+            font-size: 24px;
+            margin-right: 15px;
+            min-width: 24px;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover i {
+            transform: scale(1.1);
+            color: var(--gold);
+        }
+        
+        .contact-btn .text {
+            flex: 1;
+            word-break: break-word;
+            white-space: normal;
+            line-height: 1.5;
         }
         
         .whatsapp-btn {
-            color: #25D366;
+            background: #25D366;
+            color: white;
+        }
+        
+        .whatsapp-btn i {
+            color: white;
+        }
+        
+        .whatsapp-btn:hover::before {
+            background: #128C7E;
         }
         
         .save-btn {
-            margin-top: 20px;
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            font-weight: 600;
+            margin-top: 25px;
+            justify-content: center;
+            border: none;
+        }
+        
+        .save-btn i {
             color: white;
         }
+        
+        .watermark {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* تأثيرات خاصة بالبريد الإلكتروني */
+        .email-btn .text {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .email-btn .text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .email-btn:hover .text::after {
+            transform: scaleX(1);
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="neumorphic-card">
-        <img src="profile.jpg" alt="Mohannad Omara" class="profile-img">
-        <h1>مهند عمرة</h1>
-        <p class="title">مهندس طبي</p>
+    <div class="card">
+        <div class="profile-header">
+            <img src="profile.jpg" alt="Mohannad Omara" class="profile-img">
+            <h1>Mohannad Omara</h1>
+            <p class="title">Biomedical Engineer</p>
+        </div>
         
-        <button class="neumorphic-btn" onclick="window.location.href='tel:+966566061030'">
-            <i class="fas fa-phone-alt"></i> +966 56 606 1030
-        </button>
-        
-        <button class="neumorphic-btn" onclick="window.location.href='mailto:mohannad.omaraa@gmail.com'">
-            <i class="fas fa-envelope"></i> mohannad.omaraa@gmail.com
-        </button>
-        
-        <button class="neumorphic-btn whatsapp-btn" onclick="window.location.href='https://wa.me/966566061030'">
-            <i class="fab fa-whatsapp"></i> واتساب
-        </button>
-        
-        <button class="neumorphic-btn save-btn" 
-                onclick="window.location.href='data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Mohannad%20Omara%0ATEL;TYPE=CELL:+966566061030%0AEMAIL:mohannad.omaraa@gmail.com%0ATITLE:Biomedical%20Engineer%0AEND:VCARD'"
-                download="Mohannad_Omara.vcf">
-            <i class="fas fa-user-plus"></i> حفظ الجهة
-        </button>
+        <div class="contact-section">
+            <a href="tel:+966566061030" class="contact-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span class="text">+966 56 606 1030</span>
+            </a>
+            
+            <a href="https://wa.me/966566061030" class="contact-btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span class="text">Chat on WhatsApp</span>
+            </a>
+            
+            <a href="mailto:mohannad.omaraa@gmail.com" class="contact-btn email-btn">
+                <i class="fas fa-envelope"></i>
+                <span class="text">mohannad.omaraa@gmail.com</span>
+            </a>
+            
+            <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Mohannad%20Omara%0ATEL;TYPE=CELL:+966566061030%0AEMAIL:mohannad.omaraa@gmail.com%0ATITLE:Biomedical%20Engineer%0AEND:VCARD" 
+               class="contact-btn save-btn"
+               download="Mohannad_Omara.vcf">
+               <i class="fas fa-user-plus"></i>
+               <span>Save to Contacts</span>
+            </a>
+            
+            <p class="watermark">Professional Digital Business Card</p>
+        </div>
     </div>
 </body>
 </html>
